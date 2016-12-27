@@ -8,3 +8,8 @@ h1.quotation {
     background-size: contain;
     color: #222;
 }
+
+.reveal h1 small {
+    vertical-align: baseline;
+    text-transform: lowercase;
+}
