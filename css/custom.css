@@ -9,7 +9,20 @@ h1.quotation {
     color: #222;
 }
 
-.reveal h1 small {
+.reveal h1 small,
+.reveal h2 small {
     vertical-align: baseline;
     text-transform: lowercase;
+}
+
+h1 span.ds,
+h2 span.ds,
+h3 span.ds{
+    color: #d9b19c;
+}
+
+h1 span.ml,
+h2 span.ml,
+h3 span.ml {
+    color: #d9b19c;
 }
