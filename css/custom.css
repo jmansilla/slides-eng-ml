@@ -2,3 +2,9 @@ ul.main-adjetives {
     vertical-align: top;
     font-weight: bold;
 }
+
+h1.quotation {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/dd/Airquotes.gif");
+    background-size: contain;
+    color: #222;
+}
