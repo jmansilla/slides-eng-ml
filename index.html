@@ -156,27 +156,63 @@ def check_stuff(a, b, c, d):
         <section>
             <section>
               <h2>Ingeniería <small>haciendo DS / ML</small></h2>
-              <p>Muestrario de lo que nos funcionó</p>
+              <p>Entendiendo la problemática</p>
               <p class="fragment" data-markdown>
                   En **EQUIPOS** de desarrollo dando **soluciones reales** a **usuarios reales**
               </p>
           </section>
           <section>
             <h2>Diferencias <small>con otros proyectos</small></h2>
+            <h5>que cambian radicalmente el desarrollo</h5>
             <aside class="notes" data-markdown>
-                # A) de parsear los datos, de formatear un corpus, de definir mis features, de...
-                # B)
+                * A) de parsear los datos, de formatear un corpus, de definir mis features, de medir resultados, de herramientas a escoger
+                * B)
                   - frameworks con madurez faltante
                   - código repetitivo
-                  - mucho ad-hoc
+                  - mucho ad-hoc para mi problema
+                * C)
             </aside>
             <p class="fragment">Muchas maneras de hacer lo mismo</p>
-            <p class="fragment">Funcionalidad no reusable</p>
-            <p class="fragment">Muchos pasos manuales, mucho tiempo</p>
+            <p class="fragment">Código no reusable</p>
+            <p class="fragment">Muchos pasos manuales</p>
+            <p class="fragment">Muchas herramientas</p>
             <p class="fragment">Mucho tiempo de espera</p>
           </section>
 
+          <section>
+            <h2>Design Tips</h2>
+            <h5>Muestrario de lo que nos funcionó</h5>
+            <aside class="notes" data-markdown>
+                The fastest solution often leads to a local optimum but does not reuse
+                anything existing nor can be reused in the future.
+            </aside>
+            <p class="fragment">Empezar from scratch vs mejorar el primer POC</p>
+            <p class="fragment">Blackboxing: interfaz clara que me permita evolucionar</p>
+            <p class="fragment">Tradeoff constante: Mantenimiento vs Deployment vs Performance vs Mis Métricas</p>
+            <p class="fragment">Convivencia: Producción &amp; Experimentación</p>
+          </section>
+
+          <section>
+            <h2>Development Tips</h2>
+            <h5>Muestrario de lo que nos funcionó - 2</h5>
+            <aside class="notes" data-markdown>
+            </aside>
+            <p class="fragment">Cuando el prototipo (chanchada) funciona, integrarlo limpio</p>
+            <p class="fragment">Pair Review: de desarrollo, de experimentación, de diseños</p>
+            <p class="fragment">Buscar soluciones pre-existentes</p>
+            <p class="fragment">Definir abstracciones claras. Documentarlas</p>
+            <p class="fragment">Arrancar siempre por los modelos más simples. Los esquemas más simples</p>
+            <p class="fragment">Documentar, documentar, documentar</p>
+            <p class="fragment">Involucrar temprano al responsable de puesta en producción</p>
+          </section>
+
       </section>
+
+
+        <section>
+            <h2>Ingeniería <small>haciendo DS / ML</small></h2>
+            <p>Muestrario de lo que nos funcionó</p>
+        </section>
 
         <section>
           <h2>Preguntas</h2>

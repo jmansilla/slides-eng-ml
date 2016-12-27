@@ -12,7 +12,7 @@ h1.quotation {
 .reveal h1 small,
 .reveal h2 small {
     vertical-align: baseline;
-    text-transform: lowercase;
+    text-transform: none;
 }
 
 h1 span.ds,
