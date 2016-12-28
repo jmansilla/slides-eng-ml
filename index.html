@@ -189,7 +189,7 @@ def check_stuff(a, b, c, d):
             <p class="fragment">Empezar from scratch vs mejorar el primer POC</p>
             <p class="fragment">Blackboxing: interfaz clara que me permita evolucionar</p>
             <p class="fragment">Tradeoff constante: Mantenimiento vs Deployment vs Performance vs Mis Métricas</p>
-            <p class="fragment">Convivencia: Producción &amp; Experimentación</p>
+            <p class="fragment">Convivencia entre Producción &amp; Experimentación</p>
           </section>
 
           <section>
@@ -201,18 +201,122 @@ def check_stuff(a, b, c, d):
             <p class="fragment">Pair Review: de desarrollo, de experimentación, de diseños</p>
             <p class="fragment">Buscar soluciones pre-existentes</p>
             <p class="fragment">Definir abstracciones claras. Documentarlas</p>
-            <p class="fragment">Arrancar siempre por los modelos más simples. Los esquemas más simples</p>
+            <p class="fragment">Unificar criterios y formas</p>
+            <p class="fragment">Arrancar siempre por lo simple: modelos, esquemas, etc</p>
             <p class="fragment">Documentar, documentar, documentar</p>
-            <p class="fragment">Involucrar temprano al responsable de puesta en producción</p>
+            <p class="fragment">Involucrar temprano al devop</p>
+            <p class="fragment">NO mantener código muerto</p>
           </section>
 
       </section>
 
 
+      <section>
         <section>
             <h2>Esqueleto de proyecto</h2>
-            <p>Nuestro "esqueleto" actual de trabajo</p>
-            <p class="fragment">rellenar<p>
+            <pre><code>repo/
+    my_project_name/
+        data.py
+        models.py
+        features.py
+    experimentation/
+        metrics.py
+        experiment.py
+    bin/
+    blobs/
+    docs/
+    setup/
+    stuff/
+    tests/
+    ui/
+</code></pre>
+        </section>
+
+        <section>
+          <h2><small>setup</small></h2>
+          <ul>
+              <li>Installation &amp; setup notes</li>
+              <li>Requirements</li>
+              <li>Fabric/Ansible/Vagrant/...</li>
+          </ul>
+          <pre><code>setup/
+  install.txt
+  requirements.txt
+  ${continuous integration}
+  ${deploy automation}
+</code></pre>
+        </section>
+
+        <section>
+          <h2><small>my_project_name/data.py</small></h2>
+          <p data-markdown>
+              - Abstracción **COMPLETA** de las fuentes de datos
+              - Vistas / filtros
+          </p>
+          <pre><code>### File: data.py
+import os
+
+def list_data_points():
+    db_1 = connect_to_db_1(os.getenv('DB_1_CONNECTION_STRING'))
+    db_2 = connect_to_db_2(os.getenv('DB_2_CONNECTION_STRING'))
+    for item in db_1.some_table.filter(something):
+        d = {
+            'item_id': item.id,
+            'field_a': item.joined_table.a,
+            # ...
+            'field_n': len(item.related_subitems.all())
+        }
+        extra_info = db_2.collection.find(field_x=item.id)
+        d['field_z'] = extra_info.field_z
+        yield d
+</code></pre>
+        <ul class="fragment"><li>Normalizaciones / correcciones / limpiezas</li></ul>
+        </section>
+
+        <section>
+          <h2><small>my_project_name/models.py</small></h2>
+          <p data-markdown>
+              - Definición de uno o más modelos
+              - Por lo general, configuración declarativa
+              - Si involucra lógica delicada, merece *atención*
+          </p>
+        </section>
+
+        <section>
+          <h2><small>my_project_name/features.py</small></h2>
+          <p data-markdown>
+              - feature engineering
+              - Si involucra lógica delicada, merece *atención*
+          </p>
+        </section>
+
+        <section>
+          <h2><small>experimentation</small></h2>
+          <p data-markdown>
+              - definición e implementación de métricas
+              - particiones
+              - ejecutable que permita evaluar variantes sin cambiar todo el código
+                - requiere modelos *configurables*
+                - requiere mesura y prudencia: YAGNI
+              - registro de resultados
+          </p>
+        </section>
+
+        <section>
+          <h2><small>bin</small></h2>
+          <p>bolsa de utilities que sean de conveniencia y uso recurrente</p>
+        </section>
+
+        <section>
+          <h2><small>blobs</small></h2>
+          <p>placeholder para archivos grandes de datos, crudos o generados</p>
+          <p data-markdown>
+              - .gitignore para no incluirlos en el repo
+              - index.txt para describir cómo / donde obtenerlos
+              - dumps, pickles, imágenes, etc
+              - puede ser un dropbox / GFolder / Otros
+          </p>
+
         </section>
 
         <section>
@@ -220,6 +324,7 @@ def check_stuff(a, b, c, d):
           <p>To be defined...</p>
         </section>
 
+    </section>
 
       </div>
     </div>

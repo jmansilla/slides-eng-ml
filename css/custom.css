@@ -26,3 +26,7 @@ h2 span.ml,
 h3 span.ml {
     color: #d9b19c;
 }
+
+.reveal pre code {
+    max-height: 450px;
+}
